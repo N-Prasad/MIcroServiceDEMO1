@@ -1,0 +1,18 @@
+package com.prodata.customer_app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.prodata.customer_app.entity.Customer;
+import com.prodata.customer_app.repository.CustomerRepository;
+
+@Service
+public class CustomerCRUDService {
+	
+	@Autowired
+	private CustomerRepository customerRepo;
+	
+	
+	
+
+}

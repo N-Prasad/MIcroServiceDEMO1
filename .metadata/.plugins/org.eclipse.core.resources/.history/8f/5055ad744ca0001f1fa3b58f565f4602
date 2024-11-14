@@ -1,0 +1,72 @@
+Here is a list of commonly used **Spring Boot Actuator** properties that you can configure in `application.properties` or `application.yml`:
+
+### **General Actuator Properties**
+1. **`management.endpoints.enabled-by-default`**: Enables/disables all endpoints by default.
+   - Example: `management.endpoints.enabled-by-default=true`
+   
+2. **`management.endpoint.<endpoint-name>.enabled`**: Enables/disables a specific endpoint.
+   - Example: `management.endpoint.health.enabled=true`
+
+3. **`management.endpoints.web.exposure.include`**: Specifies which endpoints to expose over HTTP.
+   - Example: `management.endpoints.web.exposure.include=*` (exposes all endpoints)
+
+4. **`management.endpoints.web.exposure.exclude`**: Excludes specific endpoints from being exposed.
+   - Example: `management.endpoints.web.exposure.exclude=shutdown`
+
+5. **`management.endpoint.shutdown.enabled`**: Enables/disables the shutdown endpoint.
+   - Example: `management.endpoint.shutdown.enabled=true`
+
+### **Security Properties**
+1. **`management.endpoints.web.exposure.include`**: Controls which endpoints are exposed over HTTP.
+   - Example: `management.endpoints.web.exposure.include=health,info`
+   
+2. **`management.security.enabled`**: Controls whether security is enabled for management endpoints.
+   - Example: `management.security.enabled=true`
+
+### **Customizing Endpoint Paths**
+1. **`management.endpoints.web.base-path`**: Sets the base path for all web endpoints.
+   - Example: `management.endpoints.web.base-path=/manage`
+
+2. **`management.endpoints.web.path-mapping.<endpoint>`**: Changes the path for a specific endpoint.
+   - Example: `management.endpoints.web.path-mapping.health=/healthcheck`
+
+### **Metrics and Health Checks**
+1. **`management.metrics.export.<system>.enabled`**: Enables/disables exporting of metrics to a monitoring system.
+   - Example: `management.metrics.export.prometheus.enabled=true`
+
+2. **`management.endpoint.health.show-details`**: Controls when to show health details.
+   - Values: `never`, `when_authorized`, `always`
+   - Example: `management.endpoint.health.show-details=always`
+
+3. **`management.health.status.order`**: Customizes the order of health statuses.
+   - Example: `management.health.status.order=DOWN,OUT_OF_SERVICE,UP,UNKNOWN`
+
+4. **`management.metrics.tags.application`**: Adds tags to all metrics.
+   - Example: `management.metrics.tags.application=myApp`
+
+### **Logging and Tracing**
+1. **`management.endpoint.loggers.enabled`**: Enables/disables the `loggers` endpoint.
+   - Example: `management.endpoint.loggers.enabled=true`
+
+2. **`management.trace.http.enabled`**: Enables/disables HTTP trace recording.
+   - Example: `management.trace.http.enabled=true`
+
+### **Environment and Configuration Properties**
+1. **`management.endpoint.env.keys-to-sanitize`**: Specifies keys to sanitize from the `/env` output.
+   - Example: `management.endpoint.env.keys-to-sanitize=password,secret,key`
+
+2. **`management.endpoint.configprops.enabled`**: Enables/disables the `configprops` endpoint.
+   - Example: `management.endpoint.configprops.enabled=true`
+
+### **Thread Dumps and Heap Dumps**
+1. **`management.endpoint.threaddump.enabled`**: Enables/disables the `threaddump` endpoint.
+   - Example: `management.endpoint.threaddump.enabled=true`
+
+2. **`management.endpoint.heapdump.enabled`**: Enables/disables the `heapdump` endpoint.
+   - Example: `management.endpoint.heapdump.enabled=true`
+
+### **Custom Endpoints**
+1. **`management.endpoints.jmx.exposure.include`**: Exposes specific endpoints via JMX.
+   - Example: `management.endpoints.jmx.exposure.include=health,info`
+
+For a full list of available properties, refer to the official [Spring Boot Actuator documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator-properties).

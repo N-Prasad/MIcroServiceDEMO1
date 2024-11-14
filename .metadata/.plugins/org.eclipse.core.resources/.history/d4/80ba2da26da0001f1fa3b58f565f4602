@@ -1,0 +1,5 @@
+package com.prodata.cart_app.exception;
+
+public class CartNotFoundException {
+
+}

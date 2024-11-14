@@ -1,0 +1,19 @@
+package com.prodata.shopping_app.controller;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.prodata.shopping_app.dto.ProductDTO;
+
+@FeignClient("product-app")
+public interface ProductRestConsumer {
+	
+	@GetMapping("/api/products")
+	public ResponseEntity<List<ProductDTO>> getAllProducts();
+	
+	
+
+}

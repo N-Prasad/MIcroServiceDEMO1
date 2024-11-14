@@ -1,0 +1,5 @@
+package com.prodata.customer_app;
+
+public class CustomerCRUDService {
+
+}

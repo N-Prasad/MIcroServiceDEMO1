@@ -1,0 +1,26 @@
+package com.prodata.shopping_app.controller;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.prodata.shopping_app.model.Product;
+
+@FeignClient("product-app")
+public interface ProductRestConsumer {
+	
+	@GetMapping("/api/products")
+	public ResponseEntity<List<Product>> getAllProducts(); 
+	// ??? return type should same as actual service or body of response????
+	
+	@GetMapping("api/products/{id}")
+	public ResponseEntity<Product> getProductById(@PathVariable Long id);
+	
+	
+	
+	
+
+}

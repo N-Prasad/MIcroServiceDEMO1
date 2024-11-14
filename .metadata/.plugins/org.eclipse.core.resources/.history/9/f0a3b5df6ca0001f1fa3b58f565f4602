@@ -1,0 +1,130 @@
+package com.prodata.customer_app.entity;
+
+import java.util.List;
+import java.util.Objects;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "Customer")
+public class Customer {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long customerId;
+
+	@NotEmpty(message = "Customer Name should not be empty")
+	private String customerName;
+
+	@Email
+	@NotEmpty(message = "Email should not be empty")
+	private String customerEmail;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customerId")
+	@NotNull(message = "Billing address should not be empty")
+	private CustomerAddress customerBillingAddress;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customerId")
+	@NotNull(message = "shipping address should not be empty")
+	private CustomerAddress customerShippingAddress;
+
+	public Customer() {
+
+	}
+
+	public Customer(@NotEmpty(message = "Customer Name should not be empty") String customerName,
+			@Email @NotEmpty(message = "Email should not be empty") String customerEmail) {
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+	}
+
+	public Customer(@NotEmpty(message = "Customer Name should not be empty") String customerName,
+			@Email @NotEmpty(message = "Email should not be empty") String customerEmail,
+			@NotNull(message = "Billing address should not be empty") CustomerAddress customerBillingAddress,
+			@NotNull(message = "shipping address should not be empty") CustomerAddress customerShippingAddress) {
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+		this.customerBillingAddress = customerBillingAddress;
+		this.customerShippingAddress = customerShippingAddress;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + Objects.toString(customerId, "null") + ", customerName="
+				+ Objects.toString(customerName, "null") + ", customerEmail=" + Objects.toString(customerEmail, "null")
+				+ "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(customerBillingAddress, customerEmail, customerId, customerName, customerShippingAddress);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		return Objects.equals(customerBillingAddress, other.customerBillingAddress)
+				&& Objects.equals(customerEmail, other.customerEmail) && customerId == other.customerId
+				&& Objects.equals(customerName, other.customerName)
+				&& Objects.equals(customerShippingAddress, other.customerShippingAddress);
+	}
+
+	public long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(long customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+	public CustomerAddress getCustomerBillingAddress() {
+		return customerBillingAddress;
+	}
+
+	public void setCustomerBillingAddress(CustomerAddress customerBillingAddress) {
+		this.customerBillingAddress = customerBillingAddress;
+	}
+
+	public CustomerAddress getCustomerShippingAddress() {
+		return customerShippingAddress;
+	}
+
+	public void setCustomerShippingAddress(CustomerAddress customerShippingAddress) {
+		this.customerShippingAddress = customerShippingAddress;
+	}
+
+}

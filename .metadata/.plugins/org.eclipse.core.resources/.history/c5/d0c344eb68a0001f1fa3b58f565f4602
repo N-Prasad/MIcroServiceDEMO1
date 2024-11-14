@@ -1,0 +1,5 @@
+package com.prodata.inventory_app.entity;
+
+public class Inventory {
+
+}

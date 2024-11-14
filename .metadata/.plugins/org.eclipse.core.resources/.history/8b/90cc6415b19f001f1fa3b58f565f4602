@@ -1,0 +1,28 @@
+spring.application.name=product-app
+server.port=8082
+spring.profiles.active=dev
+#propertyfilename=CustomerApp
+
+#Connecting to Discovery Server
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
+#eureka.client.register-with-eureka=true
+#eureka.client.fetch-registry=true
+
+#Connecting to config Server
+#spring.config.import=configserver:http://localhost:8888
+spring.cloud.config.import-check.enabled=false
+spring.config.import=optional:configserver:http://localhost:8888
+#spring.config.import=configserver:http://localhost:8888
+management.endpoints.web.exposure.include=refresh,metrics,health,info,env,beans
+
+#DataBase H2
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#enabling h2 console
+
+spring.h2.console.enabled=true
+spring.jpa.show-sql=true
+
+

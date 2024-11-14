@@ -1,0 +1,5 @@
+package com.prodata.inventory_app.controller;
+
+public class InventoryCrudController {
+
+}

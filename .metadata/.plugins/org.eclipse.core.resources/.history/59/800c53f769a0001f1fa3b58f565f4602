@@ -1,0 +1,8 @@
+package com.prodata.inventory_app;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class InventoryService {
+
+}

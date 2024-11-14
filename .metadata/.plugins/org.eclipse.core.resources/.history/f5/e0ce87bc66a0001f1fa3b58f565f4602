@@ -1,0 +1,93 @@
+package com.prodata.customer_app.entity;
+
+import org.hibernate.validator.constraints.Range;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
+@Entity
+@Table(name = "CustomerAddress")
+public class CustomerAddress {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long addressId;
+	@NotEmpty
+	private int doorNo;
+	private String streetName;
+	@NotEmpty
+	private String city;
+	private String layout;
+	@NotNull
+	@Positive
+	@Digits(integer = 6, fraction = 0, message = "Pincode must contain 6 digits")
+	private Integer pincode;
+
+	public CustomerAddress() {
+	}
+
+	public CustomerAddress(@NotEmpty int doorNo, String streetName, @NotEmpty String city, String layout,
+			@NotNull @Positive @Digits(integer = 6, fraction = 0, message = "Pincode must contain 6 digits") Integer pincode) {
+		this.doorNo = doorNo;
+		this.streetName = streetName;
+		this.city = city;
+		this.layout = layout;
+		this.pincode = pincode;
+	}
+
+	public long getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(long addressId) {
+		this.addressId = addressId;
+	}
+
+	public int getDoorNo() {
+		return doorNo;
+	}
+
+	public void setDoorNo(int doorNo) {
+		this.doorNo = doorNo;
+	}
+
+	public String getStreetName() {
+		return streetName;
+	}
+
+	public void setStreetName(String streetName) {
+		this.streetName = streetName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getLayout() {
+		return layout;
+	}
+
+	public void setLayout(String layout) {
+		this.layout = layout;
+	}
+
+	public int getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+
+}

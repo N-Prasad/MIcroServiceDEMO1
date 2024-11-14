@@ -1,0 +1,5 @@
+package com.prodata.cart_app.repository;
+
+public class CartCrudRepository {
+
+}

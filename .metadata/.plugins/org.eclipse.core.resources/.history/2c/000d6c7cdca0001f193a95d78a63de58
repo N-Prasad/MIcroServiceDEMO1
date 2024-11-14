@@ -1,0 +1,5 @@
+package com.prodata.customer_app.exception;
+
+public class AddressNotFoundException extends RuntimeException {
+
+}

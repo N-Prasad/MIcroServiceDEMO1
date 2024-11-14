@@ -1,0 +1,5 @@
+package com.prodata.shopping_app.controller;
+
+public class ShoppingController {
+
+}

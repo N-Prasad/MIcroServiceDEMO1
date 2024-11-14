@@ -1,0 +1,66 @@
+General Actuator Properties
+management.endpoints.enabled-by-default: Enables/disables all endpoints by default.
+
+Example: management.endpoints.enabled-by-default=true
+management.endpoint.<endpoint-name>.enabled: Enables/disables a specific endpoint.
+
+Example: management.endpoint.health.enabled=true
+management.endpoints.web.exposure.include: Specifies which endpoints to expose over HTTP.
+
+Example: management.endpoints.web.exposure.include=* (exposes all endpoints)
+management.endpoints.web.exposure.exclude: Excludes specific endpoints from being exposed.
+
+Example: management.endpoints.web.exposure.exclude=shutdown
+management.endpoint.shutdown.enabled: Enables/disables the shutdown endpoint.
+
+Example: management.endpoint.shutdown.enabled=true
+Security Properties
+management.endpoints.web.exposure.include: Controls which endpoints are exposed over HTTP.
+Example: management.endpoints.web.exposure.include=health,info
+management.security.enabled: Controls whether security is enabled for management endpoints.
+Example: management.security.enabled=true
+Customizing Endpoint Paths
+management.endpoints.web.base-path: Sets the base path for all web endpoints.
+
+Example: management.endpoints.web.base-path=/manage
+management.endpoints.web.path-mapping.<endpoint>: Changes the path for a specific endpoint.
+
+Example: management.endpoints.web.path-mapping.health=/healthcheck
+Metrics and Health Checks
+management.metrics.export.<system>.enabled: Enables/disables exporting of metrics to a monitoring system.
+
+Example: management.metrics.export.prometheus.enabled=true
+management.endpoint.health.show-details: Controls when to show health details.
+
+Values: never, when_authorized, always
+Example: management.endpoint.health.show-details=always
+management.health.status.order: Customizes the order of health statuses.
+
+Example: management.health.status.order=DOWN,OUT_OF_SERVICE,UP,UNKNOWN
+management.metrics.tags.application: Adds tags to all metrics.
+
+Example: management.metrics.tags.application=myApp
+Logging and Tracing
+management.endpoint.loggers.enabled: Enables/disables the loggers endpoint.
+
+Example: management.endpoint.loggers.enabled=true
+management.trace.http.enabled: Enables/disables HTTP trace recording.
+
+Example: management.trace.http.enabled=true
+Environment and Configuration Properties
+management.endpoint.env.keys-to-sanitize: Specifies keys to sanitize from the /env output.
+
+Example: management.endpoint.env.keys-to-sanitize=password,secret,key
+management.endpoint.configprops.enabled: Enables/disables the configprops endpoint.
+
+Example: management.endpoint.configprops.enabled=true
+Thread Dumps and Heap Dumps
+management.endpoint.threaddump.enabled: Enables/disables the threaddump endpoint.
+
+Example: management.endpoint.threaddump.enabled=true
+management.endpoint.heapdump.enabled: Enables/disables the heapdump endpoint.
+
+Example: management.endpoint.heapdump.enabled=true
+Custom Endpoints
+management.endpoints.jmx.exposure.include: Exposes specific endpoints via JMX.
+Example: management.endpoints.jmx.exposure.include=health,info

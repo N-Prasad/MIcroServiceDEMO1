@@ -1,0 +1,5 @@
+package com.prodata.product_app.dto;
+
+public class ProductDTO {
+
+}

@@ -1,0 +1,5 @@
+package com.prodata.order_app.entity;
+
+public class LineItem {
+
+}

@@ -1,0 +1,11 @@
+spring.application.name=discovery-server-app
+#default port number for eureka server is 8761
+server.port=8761
+
+#Eureka Server configurations
+#default value is true
+eureka.client.register-with-eureka=false 
+eureka.client.fetch-registry=false
+
+
+
